@@ -1,9 +1,17 @@
 package web.model;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
+
+@Component
 public class Car {
     private String brand;
     private String model;
     private int series;
+
+    public Car() {
+    }
 
     public Car(String brand, String model, int series) {
         this.brand = brand;
