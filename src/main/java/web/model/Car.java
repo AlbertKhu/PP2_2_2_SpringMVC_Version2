@@ -3,9 +3,15 @@ package web.model;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Service;
+import web.controller.CarController;
+import web.dao.CarDao;
+import web.dao.CarDaoImpl;
+import web.service.CarService;
+import web.service.CarServiceImpl;
 
 @Component
 public class Car {
+    private CarDaoImpl carDao;
     private String brand;
     private String model;
     private int series;
@@ -17,6 +23,11 @@ public class Car {
         this.brand = brand;
         this.model = model;
         this.series = series;
+    }
+
+    @Autowired
+    public Car(CarDaoImpl carDao) {
+        this.carDao = carDao;
     }
 
     public String getBrand() {

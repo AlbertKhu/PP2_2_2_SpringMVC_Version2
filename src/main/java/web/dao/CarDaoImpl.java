@@ -19,12 +19,12 @@ public class CarDaoImpl implements CarDao {
     }
 
     @Override
-    public List<Car> getCars(int count) {
+    public List<Car> getCars(Integer count) {
         if (count == 0) {
             return carList;
+        } else if (count == null) {
+            throw new IllegalArgumentException("Count cannot be null");
         }
-
         return carList.stream().limit(count).collect(Collectors.toList());
     }
-
 }
